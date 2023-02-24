@@ -20,9 +20,10 @@ export const Home = () => {
   }, [value]);
 
   const { data, isLoading, error } = useSWR(
-    'https://dummyjson.com/products',
+    'https://dummyjson.com/products?limit=0',
     fetcher
   );
+
   if (error)
     return (
       <h1 className='text-2xl text-center text-white font-bold mt-4'>
@@ -35,6 +36,12 @@ export const Home = () => {
         Products are loading...
       </h1>
     );
+  for (var i = data.products.length - 1; i > 0; i--) {
+    var j = Math.floor(Math.random() * (i + 1));
+    var temp = data.products[i];
+    data.products[i] = data.products[j];
+    data.products[j] = temp;
+  }
 
   return (
     <div className=' flex flex-col gap-8'>
