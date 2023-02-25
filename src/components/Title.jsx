@@ -3,7 +3,7 @@ import React from 'react';
 const Title = () => {
   return (
     <>
-      <h1 className='text-white text-4xl text-center font-bold px-2 md:text-5xl mt-8'>
+      <h1 className='text-white text-4xl text-center font-bold px-1 md:text-5xl mt-8'>
         Real Time Search Bar
       </h1>
     </>
