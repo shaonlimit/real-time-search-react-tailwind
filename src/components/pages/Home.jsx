@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
+import useSWR from 'swr';
 import { Product } from '../Product';
 import { SearchBar } from '../SearchBar';
 import Title from '../Title';
-import useSWR from 'swr';
 
 const fetcher = async (...args) => {
   const res = await fetch(...args);
@@ -48,7 +48,7 @@ export const Home = () => {
       <Title />
 
       <SearchBar setValue={(e) => setValue(e.target.value)} />
-      <div className='main p-8 grid grid-cols-2 gap-6 md:grid-cols-4'>
+      <div className='main p-4 grid grid-cols-1 gap-6 md:grid-cols-4 md:p-8'>
         {search.length === 0 && value !== '' ? (
           <p className='text-2xl text-center text-white font-bold col-span-4'>
             No items found.
